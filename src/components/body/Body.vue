@@ -1,19 +1,26 @@
 <template>
-  <div class="body mb-20">
-    <div id="Invitation" class="bg-cokelat h-mid">
-    </div>
-    <div class="container rounded-lg md:mx-auto bg-white -mt-64 h-screen shadow-xl">
-      Invitation
-    </div>
+  <div>
+    <Invitation />
+    <LiveStreaming />
+    <Kondangan />
   </div>
 </template>
 
 <script>
+import Invitation from "./invitation/Invitation.vue"
+import LiveStreaming from "./streaming/LiveStreaming.vue"
+import Kondangan from "./kodangan/Kondangan.vue"
+
 export default {
   name: "Body",
+  components: {
+    Invitation,
+    LiveStreaming,
+    Kondangan
+  },
   data() {
     return {
-      
+
     }
   }
 }

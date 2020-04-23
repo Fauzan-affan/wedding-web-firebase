@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center justify-center min-h-screen">
-        <div class="w-auto h-auto text-center -mt-64">
+        <div class="text-center -mt-64">
             <p class="text-lg md:text-2xl text-cokelat">
                 DES 20, 2020, 10:00 AM
             </p>

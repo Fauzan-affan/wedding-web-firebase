@@ -12,6 +12,12 @@
           <a href="#Invitation">
             <nav class="cursor-pointer transition duration-500 ease-in-out pl-8 text-cokelat hover:text-yellow-700">Invitation</nav>
           </a>
+          <a href="#LiveStreaming">
+            <nav class="cursor-pointer transition duration-500 ease-in-out pl-8 text-cokelat hover:text-yellow-700">Live Streaming</nav>
+          </a>
+          <a href="#Kondangan">
+            <nav class="cursor-pointer transition duration-500 ease-in-out pl-8 text-cokelat hover:text-yellow-700">Kondangan</nav>
+          </a>
         </div>
       </div>
       <div class="md:hidden">
@@ -26,6 +32,8 @@
     <div :class="isOpen ? '' : 'hidden'" class="py-3 text-center">
       <a href="#Home" class="block rounded text-cokelat py-3 pl-3 hover:text-yellow-700 hover:bg-gray-100">Home</a>
       <a href="#Invitation" class="block rounded text-cokelat py-3 pl-3 hover:text-yellow-700 hover:bg-gray-100">Invitation</a>
+      <a href="#LiveStreaming" class="block rounded text-cokelat py-3 pl-3 hover:text-yellow-700 hover:bg-gray-100">Live Streaming</a>
+      <a href="#Kondangan" class="block rounded text-cokelat py-3 pl-3 hover:text-yellow-700 hover:bg-gray-100">Kondangan</a>
     </div>
   </div>
 </template>

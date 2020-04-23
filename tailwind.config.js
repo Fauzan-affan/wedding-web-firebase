@@ -2,7 +2,7 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        "mid": "500px"
+        "mid": "500px",
       },
       colors: {
         "cokelat": "#443318"
