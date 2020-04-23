@@ -17,7 +17,7 @@
             </div>
 
             <!-- Accordion -->
-            <div class="accordion flex flex-col items-center justify-center pb-10">
+            <div class="accordion flex flex-col items-center justify-center pb-10 cursor-pointer">
                 <label class="block uppercase tracking-wide text-cokelat text-xs md:text-xl font-bold mb-2 md:text-center" for="copyMe">
                     OVO Transfer tutorial:
                 </label>
