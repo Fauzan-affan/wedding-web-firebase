@@ -64,19 +64,19 @@
 
             <div class="flex justify-center items-center">
                 <!-- form -->
-                <form action="#" class="w-full max-w-lg">
+                <form action="#" class="w-full max-w-lg" @submit.prevent="show">
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                             <label class="block uppercase tracking-wide text-cokelat text-xs font-bold mb-2" for="name">
                                 Name
                             </label>
-                            <input class="appearance-none block w-full bg-white text-cokelat border hover:border-yellow-600 focus:border-yellow-600 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-yellow-200" id="name" type="text" placeholder="Fauzan" required>
+                            <input v-model="name" class="appearance-none block w-full bg-white text-cokelat border hover:border-yellow-600 focus:border-yellow-600 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-yellow-200" id="name" type="text" placeholder="Fauzan" required>
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-cokelat text-xs font-bold mb-2" for="phone">
                                 Phone
                             </label>
-                            <input class="appearance-none block w-full bg-white text-cokelat border hover:border-yellow-600 focus:border-yellow-600 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-yellow-200" id="phone" type="text" placeholder="0812xxxxxxxx" required>
+                            <input v-model="phone" class="appearance-none block w-full bg-white text-cokelat border hover:border-yellow-600 focus:border-yellow-600 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-yellow-200" id="phone" type="text" placeholder="0812xxxxxxxx" required>
                             <p class="text-gray-600 text-xs italic">Make sure your phone number is correct</p>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                         <label class="block uppercase tracking-wide text-cokelat text-xs font-bold mb-2" for="address">
                             Address
                         </label>
-                        <textarea id="address" rows="5" name="message" class="block w-full rounded mb-2 p-4 text-cokelat border hover:border-yellow-600 focus:border-yellow-600 rounded leading-tight focus:outline-none focus:bg-yellow-200" placeholder="Enter your address here..." required></textarea>
+                        <textarea v-model="address" id="address" rows="5" name="message" class="resize-none block w-full rounded mb-2 p-4 text-cokelat border hover:border-yellow-600 focus:border-yellow-600 rounded leading-tight focus:outline-none focus:bg-yellow-200" placeholder="Enter your address here..." required></textarea>
                         <p class="text-gray-600 text-xs italic">Souvenirs will be sent to your address.</p>
                         </div>
                     </div>
@@ -93,7 +93,51 @@
                     <div class="flex justify-end w-full">
                         <input type="submit" value="Submit" class="block bg-yellow-500 hover:bg-yellow-600 text-gray-800 text-sm font-semibold uppercase rounded cursor-pointer px-6 py-3">
                     </div>
-                </form>                
+                </form>
+                
+                <!-- Modal -->
+                <modal 
+                    name="confirm"
+                    :adaptive="true"
+                    :width="600"
+                    :height="500"
+                    @opened="opened"
+                    @closed="closed"
+                >
+                    <div v-if="!confirm" class="p-5">
+                        <p class="mb-8 text-center uppercase text-cokelat font-black text-xl md:text-2xl">
+                            Kondangan Confirmation
+                        </p>
+                        <div>
+                            <label class="block tracking-wide text-cokelat text-xs font-bold mb-1" for="checkName">
+                                Name:
+                            </label>
+                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-none" id="checkName" type="text" readonly>
+                        </div>
+                        <div>
+                            <label class="block tracking-wide text-cokelat text-xs font-bold mb-1" for="checkPhone">
+                                Phone:
+                            </label>
+                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-none" id="checkPhone" type="text" readonly>
+                        </div>
+                        <div>
+                            <label class="block tracking-wide text-cokelat text-xs font-bold mb-1" for="checkAddress">
+                                Address:
+                            </label>
+                            <textarea id="checkAddress" rows="5" name="message" class="resize-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-none" readonly></textarea>
+                        </div>
+
+                        <div class="flex justify-end w-full mt-10">
+                            <input @click="hide" type="submit" value="Cancel" class="block mr-2 bg-red-500 hover:bg-red-600 text-gray-800 text-sm font-semibold uppercase rounded cursor-pointer px-6 py-3">
+                            <input @click="submitKondangan" type="submit" value="Submit" class="block bg-yellow-500 hover:bg-yellow-600 text-gray-800 text-sm font-semibold uppercase rounded cursor-pointer px-6 py-3">
+                        </div>
+                    </div>
+
+                    <div v-if="confirm" class="flex justify-center items-center text-4xl text-cokelat min-h-full">
+                        <div>Thank you 🥰</div>
+                    </div>
+
+                </modal>
             </div>
         </div>
         <div class="h-mid"></div>
@@ -101,11 +145,17 @@
 </template>
 
 <script>
+import db from "../../../tools/firebase.js";
+
 export default {
     name: "Kondangan",
     data() {
         return {
-            info: false
+            info: false,
+            confirm: false,
+            name: "",
+            phone: "",
+            address: "",
         }
     },
     methods: {
@@ -126,7 +176,42 @@ export default {
         },
         handleInfo() {
             this.info = !this.info
-        }
+        },
+        show() {
+            this.$modal.show('confirm');
+        },
+        hide() {
+            this.$modal.hide('confirm');
+        },
+        opened() {
+            let name = document.querySelector('#checkName')
+            let phone = document.querySelector('#checkPhone')
+            let address = document.querySelector('#checkAddress')
+            
+            name.value = this.name
+            phone.value = this.phone
+            address.value = this.address
+        },
+        submitKondangan() {
+            db.collection("kondangan").add({
+                name: this.name,
+                phone: this.phone,
+                address: this.address,
+                time: new Date(),
+            })
+
+            this.confirm = !this.confirm
+            setTimeout(() => {
+                this.hide()
+            }, 3000)
+        },
+        closed() {
+            this.name = "",
+            this.phone = "",
+            this.address = ""
+
+            this.confirm = !this.confirm
+        },
     }
 }
 </script>
