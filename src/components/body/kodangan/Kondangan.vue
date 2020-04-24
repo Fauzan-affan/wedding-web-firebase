@@ -11,7 +11,7 @@
                 </label>
                 <div class="rounded flex justify-center">                    
                     <input class="py-3 text-center bg-gray-200 rounded w-40" type="text" value="081311699123" id="copyMe" readonly>
-                    <button class="ml-1 block bg-yellow-500 hover:bg-yellow-600 text-gray-800 text-sm font-semibold uppercase rounded cursor-pointer px-6 py-3" @click="copyMeOnClipboard">Copy</button>
+                    <button class="transition duration-500 ease-in-out ml-1 block bg-yellow-500 hover:bg-yellow-600 text-gray-800 text-sm font-semibold uppercase rounded cursor-pointer px-6 py-3" @click="copyMeOnClipboard">Copy</button>
                 </div>
                 <p class="showOVO text-center mt-2 text-cokelat"></p>
             </div>
@@ -24,7 +24,7 @@
                 <!--  Panel 1  -->
                 <div class="w-full md:px-10">
                     <input type="checkbox" name="panel" id="panel-1" class="hidden">
-                    <label for="panel-1" class="block text-white p-4 shadow rounded-lg flex justify-between bg-yellow-500 hover:bg-yellow-600" @click="handleInfo">
+                    <label for="panel-1" class="cursor-pointer transition duration-500 ease-in-out block text-white p-4 shadow rounded-lg flex justify-between bg-yellow-500 hover:bg-yellow-600" @click="handleInfo">
                         <div class="text-cokelat uppercase font-semibold">Click to View</div>
                         <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                             <path v-if="!info" class="heroicon-ui text-cokelat" d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"/>
@@ -91,7 +91,7 @@
                     </div>
 
                     <div class="flex justify-end w-full">
-                        <input type="submit" value="Submit" class="block bg-yellow-500 hover:bg-yellow-600 text-gray-800 text-sm font-semibold uppercase rounded cursor-pointer px-6 py-3">
+                        <input type="submit" value="Submit" class="transition duration-500 ease-in-out block bg-yellow-500 hover:bg-yellow-600 text-gray-800 text-sm font-semibold uppercase rounded cursor-pointer px-6 py-3">
                     </div>
                 </form>
                 
@@ -200,18 +200,19 @@ export default {
                 time: new Date(),
             })
 
-            this.confirm = !this.confirm
+            this.confirm = true
+
             setTimeout(() => {
                 this.hide()
             }, 3000)
-        },
-        closed() {
+
             this.name = "",
             this.phone = "",
             this.address = ""
-
-            this.confirm = !this.confirm
         },
+        closed() {
+            this.confirm = false
+        }
     }
 }
 </script>

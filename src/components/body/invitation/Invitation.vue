@@ -2,7 +2,7 @@
   <div class="body mb-20">
     <div id="Invitation" class="bg-cokelat h-mid">
       <div class="flex justify-center items-center pt-12 pb-5 text-white">
-        <div class="text-4xl font-semibold uppercase">a married</div>
+        <div class="text-4xl text-yellow-500 font-semibold uppercase">a married</div>
       </div>
       <div class="text-center italic text-lg text-white px-10 md:px-24">
         <p>"We fall in love not because a perfect people, but because a perfection in imperfect people. One of the biggest sources of happiness is getting up early and seeing our loved face. Loving someone gives strength, being loved gives courage."</p>
@@ -87,10 +87,10 @@
             <div class="text-4xl text-cokelat font-bold">At Monas</div>
             <div class="text-xl py-4 text-cokelat">Gambir, Central Jakarta City, Jakarta</div>
             <div class="flex justify-center items-center">
-              <iframe class="rounded-lg hover:shadow-2xl w-auto md:min-w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6664270097594!2d106.82496411476889!3d-6.175392395529159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sNational%20Monument!5e0!3m2!1sen!2sid!4v1587614731609!5m2!1sen!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+              <iframe class="transition duration-500 ease-in-out rounded-lg hover:shadow-xl w-auto md:min-w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6664270097594!2d106.82496411476889!3d-6.175392395529159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sNational%20Monument!5e0!3m2!1sen!2sid!4v1587614731609!5m2!1sen!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
             
-            <button @click="handleLink" class="w-40 mt-10 bg-white hover:bg-cokelat text-cokelat hover:text-white font-semibold py-2 px-4 border border-cokelat rounded shadow">
+            <button @click="handleLink" class="transition duration-500 ease-in-out w-40 mt-10 bg-white hover:bg-cokelat text-cokelat hover:text-yellow-500 font-semibold py-2 px-4 border border-cokelat rounded shadow">
               View Map
             </button>
           </div>
