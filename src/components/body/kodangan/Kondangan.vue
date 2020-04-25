@@ -70,13 +70,13 @@
                             <label class="block uppercase tracking-wide text-cokelat text-xs font-bold mb-2" for="name">
                                 Name
                             </label>
-                            <input v-model="name" class="appearance-none block w-full bg-white text-cokelat border hover:border-yellow-600 focus:border-yellow-600 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-yellow-200" id="name" type="text" placeholder="Fauzan" required>
+                            <input v-model="name" class="appearance-none block w-full bg-gray-100 text-cokelat border hover:border-cokelat focus:border-cokelat rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" type="text" placeholder="Fauzan" required>
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-cokelat text-xs font-bold mb-2" for="phone">
                                 Phone
                             </label>
-                            <input v-model="phone" class="appearance-none block w-full bg-white text-cokelat border hover:border-yellow-600 focus:border-yellow-600 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-yellow-200" id="phone" type="text" placeholder="0812xxxxxxxx" required>
+                            <input v-model="phone" class="appearance-none block w-full bg-gray-100 text-cokelat border hover:border-cokelat focus:border-cokelat rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="phone" type="text" placeholder="0812xxxxxxxx" required>
                             <p class="text-gray-600 text-xs italic">Make sure your phone number is correct</p>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                         <label class="block uppercase tracking-wide text-cokelat text-xs font-bold mb-2" for="address">
                             Address
                         </label>
-                        <textarea v-model="address" id="address" rows="5" name="message" class="resize-none block w-full rounded mb-2 p-4 text-cokelat border hover:border-yellow-600 focus:border-yellow-600 rounded leading-tight focus:outline-none focus:bg-yellow-200" placeholder="Enter your address here..." required></textarea>
+                        <textarea v-model="address" id="address" rows="5" name="message" class="resize-none block w-full bg-gray-100 rounded mb-2 p-4 text-cokelat border hover:border-cokelat focus:border-cokelat rounded leading-tight focus:outline-none focus:bg-white" placeholder="Enter your address here..." required></textarea>
                         <p class="text-gray-600 text-xs italic">Souvenirs will be sent to your address.</p>
                         </div>
                     </div>
